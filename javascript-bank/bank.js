@@ -8,7 +8,7 @@ Bank.prototype.openAccount = function (holder, balance) {
   if (Number.isInteger(balance) && balance > 0 && balance !== '') {
     var newAccount = new Account(this.nextAccountNumber, holder);
 
-    newAccount.transactions = [{ type: 'deposit', amount: balance }];
+    newAccount.deposit(balance);
 
     this.accounts.push(newAccount);
 
@@ -26,9 +26,7 @@ Bank.prototype.getAccount = function (number) {
       return this.accounts[i];
     }
   }
-  if (number >= this.accounts.length + 1) {
-    return null;
-  }
+  return null;
 };
 
 Bank.prototype.getTotalAssets = function () {
@@ -40,18 +38,8 @@ Bank.prototype.getTotalAssets = function () {
   var totalAssets = 0;
 
   for (var i = 0; i < this.accounts.length; i++) {
-    for (var j = 0; j < this.accounts[i].transactions.length; j++) {
-
-      if (this.accounts[i].transactions[j].type === 'deposit' && totalAssets >= 0) {
-        totalAssets += this.accounts[i].transactions[j].amount;
-      } else if (this.accounts[i].transactions[j].type === 'deposit' && totalAssets <= 0) {
-        totalAssets += this.accounts[i].transactions[j].amount;
-      } else if (this.accounts[i].transactions[j].type === 'withdrawal' && totalAssets >= 0) {
-        totalAssets -= this.accounts[i].transactions[j].amount;
-      } else if (this.accounts[i].transactions[j].type === 'withdrawal' && totalAssets <= 0) {
-        totalAssets -= this.accounts[i].transactions[j].amount;
-      }
-    }
+    var balance = this.accounts[i].getBalance();
+    totalAssets += balance;
   }
   return totalAssets;
 };
