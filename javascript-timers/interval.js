@@ -1,5 +1,5 @@
 
-var counter = 4;
+var counter = 3;
 
 var timer = setInterval(function () {
 
