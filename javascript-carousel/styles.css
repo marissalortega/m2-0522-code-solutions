@@ -1,0 +1,37 @@
+.container {
+  width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 80px;
+}
+
+.row,
+.img-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-angle-icon {
+  margin-top: 80px;
+}
+
+.right-angle-icon {
+  margin-top: 80px;
+}
+
+.img-div {
+  width: 480px;
+  margin-left: 160px;
+  margin-right: 160px;
+  margin-bottom: 48px;
+}
+
+img {
+  object-fit: contain;
+  display: none;
+}
+
+i {
+  margin-right: 16px;
+}
