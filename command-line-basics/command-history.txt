@@ -1,0 +1,88 @@
+    1  git status
+    2  git pull origin main
+    3  git branch http-messages
+    4  git branch --list
+    5  sit switch http-messages
+    6  git switch http-messages
+    7  git status
+    8  clear
+    9  https httpie.io/hello
+   10  $https httpie.io/hello
+   11  clear
+   12  $ https httpie.io/hello
+   13  https httpie.io/hello
+   14  git status
+   15  git add es6-arrow-functions
+   16  git status
+   17  git commit -m "completed exercise es6-arrow-functions"
+   18  git push origin es6-arrow-functions
+   19  clear
+   20  git switch main
+   21  git branch command-line-basics
+   22  git branch --list
+   23  git switch command-line-basics
+   24  git status
+   25  clear
+   26  cd command-line-basics
+   27  clear
+   28  clear
+   29  man man
+   30  man cat
+   31  man cat
+   32  cat laziness.txt
+   33  cat impatience.txt
+   34  cat hubris.txt
+   35  man cat
+   36  cat laziness.txt impatience.txt hubris.txt
+   37  cat laziness.txt impatience.txt hubris.txt > three-virtues.txt
+   38  cat three-virtues.txt
+   39  man ls
+   40  ls
+   41  ls -a
+   42  ls -F
+   43  ls lfz-staff/
+   44  ls lfz-staff/ -a
+   45  ls lfz-staff/ -F
+   46  ls -aF lfz-staff > lfz-staff/contents.txt
+   47  cat lfz-staff/contents.txt
+   48  man pwd
+   49  pwd
+   50  pwd > i-was-here.txt
+   51  ls
+   52  cat i-was-here.txt
+   53  man echo
+   54  echo 'Hello, World!'
+   55  echo 'Hello, World!' > hello.txt
+   56  ls
+   57  cat hello.txt
+   58  man touch
+   59  touch tag-youre-it.txt
+   60  touch snoot/boop.txt
+   61  ls snoot/
+   62  man mkdir
+   63  mkdir parent
+   64  ls
+   65  mkdir -p parent/child/grandchild
+   66  touch parent/child/grandchild/.gitkeep
+   67  ls -a
+   68  ls -a parent/child/granchild
+   69  ls -a
+   70  ls parent/child/grandchild/ -a
+   71  man mv
+   72  mv man
+   73  man mv
+   74  mv pokiemans pokemon
+   75  ls
+   76  man rm
+   77  man rm
+   78  rm lol.txt
+   79  ls
+   80  rm -r kill-me/
+   81  ls
+   82  man cp
+   83  cp and-then.txt no-and-then.txt
+   84  ls
+   85  cat and-then.txt no-and-then.txt
+   86  man history
+   87  history
+   88  history > command-history.txt
