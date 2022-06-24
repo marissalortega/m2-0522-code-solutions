@@ -3,8 +3,8 @@ const subtract = require('./subtract');
 const multiply = require('./multiply');
 const divide = require('./divide');
 
-const numberX = Math.floor(process.argv[2]);
-const numberY = Math.floor(process.argv[4]);
+const numberX = parseFloat(process.argv[2]);
+const numberY = parseFloat(process.argv[4]);
 
 if (process.argv[3] === 'plus') {
   console.log('result:', add(numberX, numberY));
