@@ -11,7 +11,7 @@ if (process.argv[2] === 'create') {
   fs.readFile('data.json', 'utf8', (err, data) => {
     const JSONParse = JSON.parse(data);
     if (err) throw err;
-    else {
+    else if (process.argv.length === 4) {
       const nextId = JSONParse.nextId++;
       JSONParse.notes[nextId] = process.argv[3];
     }
