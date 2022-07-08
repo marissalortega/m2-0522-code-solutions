@@ -33,8 +33,8 @@ for (const key in grades) {
 
   gradesArr.push(grades[key]);
 
-  app.get('/api/grades', (req, res) => {
-    res.json(gradesArr);
-  });
-
 }
+
+app.get('/api/grades', (req, res) => {
+  res.json(gradesArr);
+});
