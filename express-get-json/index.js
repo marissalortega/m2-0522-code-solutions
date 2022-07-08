@@ -27,14 +27,13 @@ var grades = {
   }
 };
 
-const gradesArr = [];
-
-for (const key in grades) {
-
-  gradesArr.push(grades[key]);
-
-}
-
 app.get('/api/grades', (req, res) => {
+
+  const gradesArr = [];
+
+  for (const key in grades) {
+    gradesArr.push(grades[key]);
+  }
+
   res.json(gradesArr);
 });
