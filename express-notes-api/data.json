@@ -1,5 +1,5 @@
 {
-  "nextId": 15,
+  "nextId": 19,
   "notes": {
     "2": {
       "id": 2,
@@ -24,6 +24,22 @@
     "13": {
       "id": 13,
       "content": "The ocean is salty."
+    },
+    "15": {
+      "content": "The sky is blue",
+      "id": 15
+    },
+    "16": {
+      "content": "Hello",
+      "id": 16
+    },
+    "17": {
+      "content": "Hello",
+      "id": 17
+    },
+    "18": {
+      "content": "Hello",
+      "id": 18
     }
   }
 }

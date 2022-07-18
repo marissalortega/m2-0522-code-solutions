@@ -51,13 +51,14 @@ app.post('/api/notes', (req, res) => {
 
     if (err) throw err;
 
-    else if (Object.keys(req.body).length === 0) {
+    else if (req.body.content === undefined) {
+
       res.status(400).json({ error: 'content is a required field' });
     } else if (Object.keys(req.body)[0] === 'content') {
 
       const nextNoteId = dataJSON.nextId++;
       dataJSON.notes[nextNoteId] = req.body;
-      dataJSON.notes[nextNoteId] = Object.assign({ id: nextNoteId }, dataJSON.notes[nextNoteId]);
+      dataJSON.notes[nextNoteId].id = nextNoteId;
       const newData = JSON.stringify(dataJSON, null, 2);
 
       fs.writeFile('data.json', newData, err => {
