@@ -57,12 +57,12 @@ app.post('/api/grades', (req, res, next) => {
     res.status(400).json({
       error: '"grade" is invalid. Missing "name", "course" or "score".'
     });
-  } else if (!Number.isInteger(req.body.score) || req.body.score <= 0) {
+  } else if (req.body.score <= 0) {
     res.status(400).json({
       error: '"score" must be a postive integer.'
     });
+    return;
   }
-
   const sql = `
     insert into "grades" ("name", "course", "score")
     values ('${req.body.name}', '${req.body.course}', ${req.body.score})
@@ -97,6 +97,7 @@ app.put('/api/grades/:gradeId', (req, res, next) => {
     res.status(400).json({
       error: '"grade" is invalid. Missing "name", "course" or "score".'
     });
+    return;
   }
 
   const sql = `
@@ -135,25 +136,26 @@ app.put('/api/grades/:gradeId', (req, res, next) => {
 });
 
 // Deletes grade from the "grades" table.
-app.delete('api/grades/:gradeId', (req, res, next) => {
+app.delete('/api/grades/:gradeId', (req, res, next) => {
+
   const gradeId = Number(req.params.gradeId);
 
   if (!Number.isInteger(gradeId) || gradeId <= 0) {
     res.status(400).json({
       error: '"gradeId" must be a postive integer'
     });
+    return;
   }
 
   const sql = `
     delete from "grades"
       where "gradeId" = ${gradeId}
-      returning *;
+    returning *;
   `;
 
-  const params = gradesArr;
-
-  db.query(sql, params)
+  db.query(sql)
     .then(result => {
+
       const grade = result.rows[0];
 
       if (!grade) {
@@ -164,6 +166,7 @@ app.delete('api/grades/:gradeId', (req, res, next) => {
         res.sendStatus(204);
       }
     })
+
     .catch(err => {
 
       console.error(err);
